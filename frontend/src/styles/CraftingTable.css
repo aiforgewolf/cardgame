@@ -1,0 +1,200 @@
+.crafting-table {
+  min-height: 100vh;
+  padding: 80px 20px 20px;
+}
+
+.crafting-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.crafting-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crafting-header p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-bar button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.filter-bar button:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.filter-bar button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1600px;
+  margin: 0 auto 50px;
+}
+
+.recipe-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.recipe-card:hover {
+  transform: translateY(-10px);
+  border-color: #667eea;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.recipe-tier {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.recipe-cost {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recipe-cost h4 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.essence-cost {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.essence-cost .essence {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.essence-cost .essence.fire {
+  background: rgba(255, 68, 68, 0.2);
+  border: 1px solid rgba(255, 68, 68, 0.4);
+}
+
+.essence-cost .essence.water {
+  background: rgba(68, 68, 255, 0.2);
+  border: 1px solid rgba(68, 68, 255, 0.4);
+}
+
+.essence-cost .essence.earth {
+  background: rgba(68, 170, 68, 0.2);
+  border: 1px solid rgba(68, 170, 68, 0.4);
+}
+
+.essence-cost .essence.air {
+  background: rgba(255, 238, 68, 0.2);
+  border: 1px solid rgba(255, 238, 68, 0.4);
+}
+
+.essence-cost .essence.void {
+  background: rgba(170, 68, 170, 0.2);
+  border: 1px solid rgba(170, 68, 170, 0.4);
+}
+
+.crafting-info {
+  max-width: 1400px;
+  margin: 50px auto 0;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.crafting-info h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #667eea;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.info-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card ul li {
+  padding: 10px 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-card ul li:before {
+  content: '✨ ';
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

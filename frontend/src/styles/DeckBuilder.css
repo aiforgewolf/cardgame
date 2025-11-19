@@ -1,0 +1,120 @@
+.deck-builder {
+  min-height: 100vh;
+  padding: 80px 20px 20px;
+}
+
+.deck-builder-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.deck-builder-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.deck-stats {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.deck-stats h3 {
+  margin-bottom: 15px;
+  color: #667eea;
+}
+
+.deck-stats p {
+  padding: 8px 0;
+  font-size: 1.1rem;
+}
+
+.element-distribution {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.element-distribution span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.valid-deck {
+  color: #4ecdc4;
+  font-weight: 700;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.deck-builder-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.collection-panel,
+.deck-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.collection-panel h2,
+.deck-panel h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.collection-grid,
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.collection-card,
+.deck-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.collection-card:hover,
+.deck-card:hover {
+  transform: scale(1.05);
+}
+
+.quantity {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .deck-builder-content {
+    grid-template-columns: 1fr;
+  }
+}
