@@ -93,9 +93,10 @@ Want to play with friends online? Deploy to Railway in minutes!
    ```
    NODE_ENV=production
    JWT_SECRET=your-random-secret-key-here
+   DB_PATH=/app/backend/data
    ```
 6. **Add a Volume** (optional but recommended):
-   - Mount path: `/app/backend`
+   - Mount path: `/app/backend/data`
    - Keeps database persistent
 7. **Deploy** and get your public URL!
 

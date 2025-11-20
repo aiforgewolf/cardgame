@@ -1,9 +1,21 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 
 class Database {
   constructor() {
-    this.db = new sqlite3.Database(path.join(__dirname, 'elementforge.db'), (err) => {
+    // Use environment variable for database path, or default to backend directory
+    const dbDir = process.env.DB_PATH || __dirname;
+
+    // Ensure directory exists
+    if (!fs.existsSync(dbDir)) {
+      fs.mkdirSync(dbDir, { recursive: true });
+    }
+
+    const dbPath = path.join(dbDir, 'elementforge.db');
+    console.log(`Using database at: ${dbPath}`);
+
+    this.db = new sqlite3.Database(dbPath, (err) => {
       if (err) {
         console.error('Error opening database:', err);
       } else {

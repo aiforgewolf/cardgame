@@ -48,6 +48,7 @@ The code is already configured for Railway deployment! Here's what was set up:
    NODE_ENV=production
    PORT=3001
    JWT_SECRET=your-super-secret-key-change-this-to-something-random
+   DB_PATH=/app/backend/data
    ```
 
    **Important**: Change `JWT_SECRET` to a long random string!
@@ -78,11 +79,15 @@ You should see the Element Forge login page!
 
 ### Option A: Use Railway Volumes (Recommended for SQLite)
 
-1. In Railway dashboard → **Add Volume**
-2. **Mount Path**: `/app/backend`
-3. **Size**: 1 GB (free tier)
+1. In Railway dashboard → Click your service
+2. Go to **Data** tab → **Add Volume**
+3. **Mount Path**: `/app/backend/data`
+4. **Size**: 1 GB (free tier)
+5. Make sure you set `DB_PATH=/app/backend/data` in environment variables (see Step 4 above)
 
 This will persist your `elementforge.db` file across deployments and restarts.
+
+**Important**: The volume MUST be mounted at `/app/backend/data`, not `/app/backend`, otherwise it will overwrite your application code!
 
 ### Option B: Use PostgreSQL (Better for Production)
 
