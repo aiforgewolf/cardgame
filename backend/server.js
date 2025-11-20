@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
 
 const database = require('./database');
 const GameEngine = require('./gameEngine');
@@ -663,6 +664,18 @@ async function saveGameHistory(game) {
   } catch (error) {
     console.error('Error saving game history:', error);
   }
+}
+
+// ============ SERVE FRONTEND IN PRODUCTION ============
+
+// Serve static files from React build in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  // Catch-all route to serve React app for any non-API routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  });
 }
 
 // ============ START SERVER ============

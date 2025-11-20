@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
 
-const API_URL = 'http://localhost:3001';
+// Use environment variable for API URL, fallback to localhost for development
+const API_URL = process.env.REACT_APP_API_URL ||
+  (window.location.origin.includes('localhost') ? 'http://localhost:3001' : window.location.origin);
 
 function Login({ onLogin }) {
   const [mode, setMode] = useState('login'); // 'login', 'register', 'guest'

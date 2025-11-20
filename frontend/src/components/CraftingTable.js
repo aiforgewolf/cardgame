@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import '../styles/CraftingTable.css';
 
+// Use environment variable for API URL, fallback to localhost for development
+const API_URL = process.env.REACT_APP_API_URL ||
+  (window.location.origin.includes('localhost') ? 'http://localhost:3001' : window.location.origin);
+
 function CraftingTable() {
   const navigate = useNavigate();
   const [recipes, setRecipes] = useState([]);
@@ -15,7 +19,7 @@ function CraftingTable() {
 
   const fetchRecipes = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/crafting/recipes');
+      const response = await fetch(`${API_URL}/api/crafting/recipes`);
       const data = await response.json();
       setRecipes(data.recipes || []);
       setLoading(false);

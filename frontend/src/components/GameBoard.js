@@ -3,7 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import '../styles/GameBoard.css';
 
-const WS_URL = 'ws://localhost:3001';
+// Use environment variables for URLs, with smart fallbacks
+const API_URL = process.env.REACT_APP_API_URL ||
+  (window.location.origin.includes('localhost') ? 'http://localhost:3001' : window.location.origin);
+
+const WS_URL = process.env.REACT_APP_WS_URL ||
+  (window.location.protocol === 'https:'
+    ? `wss://${window.location.host}`
+    : 'ws://localhost:3001');
 
 function GameBoard({ user, token }) {
   const navigate = useNavigate();
@@ -50,7 +57,7 @@ function GameBoard({ user, token }) {
 
   const fetchCraftableCards = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/crafting/recipes');
+      const response = await fetch(`${API_URL}/api/crafting/recipes`);
       const data = await response.json();
       setCraftableCards(data.recipes || []);
     } catch (error) {

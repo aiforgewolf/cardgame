@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "cd ../frontend && npm install && npm run build",
+    "deploy": "npm run build && npm start"
   },
   "keywords": ["card-game", "websocket", "game-server"],
   "author": "",

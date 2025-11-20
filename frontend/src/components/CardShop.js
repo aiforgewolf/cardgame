@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import '../styles/CardShop.css';
 
+// Use environment variable for API URL, fallback to localhost for development
+const API_URL = process.env.REACT_APP_API_URL ||
+  (window.location.origin.includes('localhost') ? 'http://localhost:3001' : window.location.origin);
+
 function CardShop({ user, token, setUser }) {
   const navigate = useNavigate();
   const [purchasedCards, setPurchasedCards] = useState([]);
@@ -45,7 +49,7 @@ function CardShop({ user, token, setUser }) {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/shop/buy-pack', {
+      const response = await fetch(`${API_URL}/api/shop/buy-pack`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

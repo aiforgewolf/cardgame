@@ -79,6 +79,37 @@ npm start
 
 The game will open in your browser at `http://localhost:3000`
 
+## 🌐 Deploy to Railway (Play Online!)
+
+Want to play with friends online? Deploy to Railway in minutes!
+
+### Quick Deploy Steps:
+
+1. **Push to GitHub** (if you haven't already)
+2. **Go to [Railway.app](https://railway.app)** and sign in
+3. **New Project** → **Deploy from GitHub repo**
+4. **Select this repository**
+5. **Add environment variables**:
+   ```
+   NODE_ENV=production
+   JWT_SECRET=your-random-secret-key-here
+   ```
+6. **Add a Volume** (optional but recommended):
+   - Mount path: `/app/backend`
+   - Keeps database persistent
+7. **Deploy** and get your public URL!
+
+🎮 **You can now play online with anyone!**
+
+📖 **Detailed guide**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for step-by-step instructions
+
+### What Works Automatically:
+- ✅ Production URLs auto-configured
+- ✅ WebSocket (wss://) support
+- ✅ Frontend served from backend
+- ✅ Database persistence (with Volume)
+- ✅ Guest & registered user support
+
 ## 🎯 How to Play
 
 ### For First-Time Players

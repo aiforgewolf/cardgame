@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import '../styles/DeckBuilder.css';
 
+// Use environment variable for API URL, fallback to localhost for development
+const API_URL = process.env.REACT_APP_API_URL ||
+  (window.location.origin.includes('localhost') ? 'http://localhost:3001' : window.location.origin);
+
 function DeckBuilder({ user, token }) {
   const navigate = useNavigate();
   const [collection, setCollection] = useState([]);
@@ -16,7 +20,7 @@ function DeckBuilder({ user, token }) {
 
   const fetchCollection = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/cards/collection', {
+      const response = await fetch(`${API_URL}/api/cards/collection`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -28,7 +32,7 @@ function DeckBuilder({ user, token }) {
 
   const fetchActiveDeck = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/decks/active', {
+      const response = await fetch(`${API_URL}/api/decks/active`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
